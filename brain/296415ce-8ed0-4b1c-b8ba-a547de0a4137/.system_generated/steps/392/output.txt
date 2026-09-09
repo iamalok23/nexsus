@@ -1,0 +1,64 @@
+
+The command exited with code 0.
+Output:
+Recovered package.json from view logs (732 bytes)
+Recovered index.html from view logs (357 bytes)
+Recovered tailwind.config.js from view logs (126 bytes)
+Recovered tsconfig.app.json from view logs (655 bytes)
+Recovered src/main.tsx from view logs (357 bytes)
+Recovered src/index.css from view logs (2169 bytes)
+Updated api.ts from current log write_to_file
+Updated ApiStatusBanner.tsx from current log write_to_file
+Updated start_nexus.bat from current log write_to_file
+Updated start_nexus.ps1 from current log write_to_file
+Updated restore_nexus.py from current log write_to_file
+
+Writing 45 files to C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus...
+  [OK] vite.config.ts
+  [OK] src\lib\utils.ts
+  [OK] src\types\index.ts
+  [OK] src\data\mockData.ts
+  [OK] src\context\ThemeContext.tsx
+  [OK] src\components\ui\button.tsx
+  [OK] src\components\ui\card.tsx
+  [OK] src\components\ui\badge.tsx
+  [OK] src\components\ui\input.tsx
+  [OK] src\components\ui\tabs.tsx
+  [OK] src\components\ui\dialog.tsx
+  [OK] src\components\layout\Sidebar.tsx
+  [OK] src\components\layout\TopNav.tsx
+  [OK] src\components\layout\AppLayout.tsx
+  [OK] src\components\common\MetricCard.tsx
+  [OK] src\components\common\DataTable.tsx
+  [OK] src\components\network\NetworkGraphContainer.tsx
+  [OK] src\components\common\EvidenceCard.tsx
+  [OK] src\components\common\EntityCard.tsx
+  [OK] src\components\common\AlertCard.tsx
+  [OK] src\pages\LoginPage.tsx
+  [OK] src\pages\DashboardPage.tsx
+  [OK] src\pages\CasesPage.tsx
+  [OK] src\pages\UploadEvidencePage.tsx
+  [OK] src\pages\NetworkAnalysisPage.tsx
+  [OK] src\pages\EntityProfilePage.tsx
+  [OK] src\pages\TimelinePage.tsx
+  [OK] src\pages\SettingsPage.tsx
+  [OK] src\pages\EvidenceDetailsPage.tsx
+  [OK] src\App.tsx
+  [OK] package.json
+  [OK] index.html
+  [OK] tailwind.config.js
+  [OK] tsconfig.app.json
+  [OK] src\main.tsx
+  [OK] src\index.css
+  [OK] src\lib\api.ts
+  [OK] src\components\common\ApiStatusBanner.tsx
+  [OK] ..\start_nexus.bat
+  [OK] ..\start_nexus.ps1
+  [OK] ..\restore_nexus.py
+  [OK] tsconfig.json
+  [OK] tsconfig.node.json
+  [OK] postcss.config.js
+  [OK] src\App.css
+
+Restoration of nexus completed successfully!
+

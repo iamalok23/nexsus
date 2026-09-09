@@ -1,0 +1,10 @@
+
+> nexus@0.0.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+
+  VITE v8.2.2  ready in 958 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.137.1:5173/  Wi-Fi 2
+  ➜  Network: http://10.11.1.108:5173/    Wi-Fi

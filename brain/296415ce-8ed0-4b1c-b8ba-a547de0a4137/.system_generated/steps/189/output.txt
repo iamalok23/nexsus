@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+STATUS 200 -> /health (204 bytes)
+STATUS 200 -> /docs (1044 bytes)
+STATUS 200 -> /openapi.json (26317 bytes)
+STATUS 200 -> /api/cases (775 bytes)
+

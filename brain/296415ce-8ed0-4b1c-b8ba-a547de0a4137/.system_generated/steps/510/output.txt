@@ -1,0 +1,29 @@
+
+The command exited with code 0.
+Output:
+
+
+title            : Operation Chakravyuh
+description      : Synthetic investigation scenario into inter-state logistics corridors and transactional anomaly 
+                   correlations across Delhi, Ghaziabad, Noida, and Lucknow. All findings are algorithmic risk 
+                   indicators requiring human review.
+codeName         : CHAKRAVYUH
+priority         : CRITICAL
+leadInvestigator : ACP Vikramaditya Rathore
+agency           : Special Investigation Cell (Synthetic Unit)
+jurisdiction     : Delhi NCR / Uttar Pradesh Crime Corridor
+id               : case-sih-01
+caseNumber       : CASE-2026-NCR-09
+status           : Active Investigation
+openedDate       : 2026-06-15
+lastUpdated      : 2026-09-08T00:00:00Z
+warrantsIssued   : 3
+assetsSeized     : �?11.85 Crore
+entitiesCount    : 7
+evidenceCount    : 3
+riskIndex        : 88
+dataset_label    : Synthetic Investigation Dataset
+
+
+
+

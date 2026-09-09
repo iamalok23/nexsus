@@ -1,0 +1,12 @@
+
+> nexus@0.0.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:10:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+  VITE v8.2.2  ready in 199 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.11.0.186:5173/  Wi-Fi

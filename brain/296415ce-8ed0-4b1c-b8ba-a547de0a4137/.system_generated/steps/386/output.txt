@@ -1,0 +1,35 @@
+
+The command exited with code 0.
+Output:
+Found 30 files in fb69bf55-26d8-4420-a8a5-e461b2943c07:
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\App.tsx 1806 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\AlertCard.tsx 4854 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\DataTable.tsx 7607 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\EntityCard.tsx 4528 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\EvidenceCard.tsx 7618 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\MetricCard.tsx 3803 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\AppLayout.tsx 1306 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\Sidebar.tsx 6360 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\TopNav.tsx 9877 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\network\NetworkGraphContainer.tsx 19529 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\badge.tsx 1403 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\button.tsx 1943 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\card.tsx 2172 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\dialog.tsx 2429 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\input.tsx 934 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\tabs.tsx 2867 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\context\ThemeContext.tsx 1339 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\data\mockData.ts 25670 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\lib\utils.ts 166 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\CasesPage.tsx 17931 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\DashboardPage.tsx 11085 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EntityProfilePage.tsx 16826 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EvidenceDetailsPage.tsx 7854 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\LoginPage.tsx 7351 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\NetworkAnalysisPage.tsx 5566 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\SettingsPage.tsx 11555 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\TimelinePage.tsx 11108 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\UploadEvidencePage.tsx 16040 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\types\index.ts 3980 bytes
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\vite.config.ts 268 bytes
+

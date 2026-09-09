@@ -1,0 +1,9 @@
+
+The command exited with code 1.
+Output:
+
+> nexus@0.0.0 build
+> tsc -b && vite build
+
+src/types/index.ts(125,1): error TS1131: Property or signature expected.
+

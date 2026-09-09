@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+
+LocalAddress                        LocalPort RemoteAddress                       RemotePort State       AppliedSetting
+------------                        --------- -------------                       ---------- -----       --------------
+::1                                 5173      ::1                                 65197      TimeWait                  
+::1                                 5173      ::1                                 64411      TimeWait                  
+::1                                 5173      ::1                                 62310      TimeWait                  
+::1                                 5173      ::1                                 62303      TimeWait                  
+::1                                 5173      ::1                                 61112      TimeWait                  
+::1                                 5173      ::1                                 60934      Established Internet      
+::1                                 5173      ::1                                 60214      TimeWait                  
+::1                                 5173      ::1                                 59815      TimeWait                  
+::1                                 5173      ::1                                 58583      TimeWait                  
+::1                                 5173      ::1                                 58537      TimeWait                  
+::1                                 5173      ::1                                 58106      Established Internet      
+::1                                 5173      ::1                                 57510      TimeWait                  
+::1                                 5173      ::1                                 57268      TimeWait                  
+::1                                 5173      ::1                                 56097      TimeWait                  
+::1                                 5173      ::1                                 55301      FinWait2    Internet      
+::1                                 5173      ::1                                 55248      FinWait2    Internet      
+::1                                 5173      ::1                                 55235      TimeWait                  
+::1                                 5173      ::1                                 54561      TimeWait                  
+::1                                 5173      ::1                                 53603      FinWait2    Internet      
+::1                                 5173      ::1                                 51405      TimeWait                  
+::1                                 5173      ::1                                 51122      TimeWait                  
+::                                  5173      ::                                  0          Listen                    
+
+
+

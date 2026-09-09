@@ -1,0 +1,69 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\data\mockData.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -668,4 +668,63 @@
+     isRead: true
+   }
+ ]
++
++export const mockTimelineEvents: TimelineEvent[] = [
++  {
++    id: 'tl-1',
++    timestamp: '2026-09-05 23:45 IST',
++    title: 'Intercepted Audio Comms - Delivery Directive',
++    description: 'Rahul Verma directed Amit Yadav to disburse ₹45,000 cash advance to courier Anil Kumar in Kanpur.',
++    category: 'wiretap',
++    entityIds: ['ent-1', 'ent-2', 'ent-7'],
++    entityNames: ['Rahul Verma', 'Amit Yadav', 'Anil Kumar'],
++    caseId: 'case-sih-01',
++    severity: 'high',
++    location: 'Lodhi Road Cell Node, Delhi',
++    confidenceScore: 92,
++    evidenceRef: 'EV-2026-VOICE-04'
++  },
++  {
++    id: 'tl-2',
++    timestamp: '2026-09-06 14:00 IST',
++    title: 'Flagged RTGS Transaction - Canara Bank',
++    description: '₹12,50,000 transferred via RTGS from bullion trader accounts into Priya Singh linked entity in Lucknow.',
++    category: 'financial',
++    entityIds: ['ent-1', 'ent-2', 'ent-3'],
++    entityNames: ['Rahul Verma', 'Amit Yadav', 'Priya Singh'],
++    caseId: 'case-sih-01',
++    severity: 'critical',
++    location: 'Hazratganj, Lucknow',
++    confidenceScore: 95,
++    evidenceRef: 'EV-2026-BANK-03'
++  },
++  {
++    id: 'tl-3',
++    timestamp: '2026-09-07 19:15 IST',
++    title: 'ANPR Toll Sighting - Scorpio UP14 AB 1234',
++    description: 'Vehicle registered under Amit Yadav crossed Jewar Toll Plaza on Yamuna Expressway heading to Lucknow.',
++    category: 'sighting',
++    entityIds: ['ent-2', 'ent-4'],
++    entityNames: ['Amit Yadav', 'Suresh Sharma'],
++    caseId: 'case-sih-01',
++    severity: 'high',
++    location: 'Jewar Toll Plaza, Yamuna Expressway',
++    confidenceScore: 98,
++    evidenceRef: 'EV-2026-FASTAG-02'
++  },
++  {
++    id: 'tl-4',
++    timestamp: '2026-09-07 22:30 IST',
++    title: 'Surveillance Raid & Warrant Issuance',
++    description: 'Search warrant executed at Indirapuram cell location following 48 midnight calls between syndicate operatives.',
++    category: 'warrant',
++    entityIds: ['ent-1', 'ent-2', 'ent-5'],
++    entityNames: ['Rahul Verma', 'Amit Yadav', 'Neha Gupta'],
++    caseId: 'case-sih-01',
++    severity: 'critical',
++    location: 'Indirapuram, Ghaziabad',
++    confidenceScore: 94,
++    evidenceRef: 'EV-2026-CDR-01'
++  }
++]
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

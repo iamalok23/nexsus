@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+CORS OPTIONS /api/cases Status: 200
+Access-Control-Allow-Origin: http://localhost:5173
+Access-Control-Allow-Methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT
+

@@ -1,0 +1,36 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\DashboardPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -125,9 +125,12 @@
+         </div>
+       </div>
+ 
++      {/* Backend API Status Banner */}
++      <ApiStatusBanner loading={loading} error={error} onRetry={fetchDashboardData} label="DASHBOARD & INSIGHTS API" />
++
+       {/* 4 Core Required Hackathon Metrics */}
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+-        {mockMetrics.map((m) => (
++        {metrics.map((m) => (
+           <MetricCard
+             key={m.id}
+             title={m.title}
+@@ -146,7 +146,7 @@
+           <div className="flex items-center space-x-2">
+             <Zap className="h-4 w-4 text-amber-400" />
+             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+-              AI Detected Modus Operandi // 3 Potential Crime Patterns
++              AI Detected Modus Operandi // Potential Crime Patterns
+             </h2>
+           </div>
+           <Badge variant="amber">PATTERN ENGINE ACTIVE</Badge>
+@@ -153,6 +153,6 @@
+ 
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+-          {mockCrimePatterns.map((pattern) => (
++          {patterns.map((pattern) => (
+             <Card key={pattern.id} className="bg-[#0c121e] border-slate-800 hover:border-amber-500/50 transition-all p-4 space-y-2.5">
+               <div className="flex items-center justify-between">
+                 <Badge variant={pattern.severity === 'CRITICAL' ? 'critical' : 'high'}>
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

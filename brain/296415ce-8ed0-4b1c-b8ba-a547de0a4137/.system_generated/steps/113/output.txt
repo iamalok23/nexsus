@@ -1,0 +1,2 @@
+Created file file:///C:/Users/Nityam%20Jaiswal/.gemini/antigravity/scratch/backend/app/api/entities.py with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.

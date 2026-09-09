@@ -1,0 +1,11 @@
+You have 1 background task(s) currently running:
+{
+  "taskId": "296415ce-8ed0-4b1c-b8ba-a547de0a4137/task-341",
+  "toolName": "run_command",
+  "toolSummary": "Start backend on port 8000",
+  "description": "& \"..\\.venv\\Scripts\\python.exe\" -m uvicorn app.main:app --host 0.0.0.0 --port 8000",
+  "startTime": "2026-09-09T10:29:25.233445300Z",
+  "stepIndex": 341,
+  "logUri": "file:///C:/Users/Nityam%20Jaiswal/.gemini/antigravity/brain/296415ce-8ed0-4b1c-b8ba-a547de0a4137/.system_generated/tasks/task-341.log",
+  "isDaemon": true
+}

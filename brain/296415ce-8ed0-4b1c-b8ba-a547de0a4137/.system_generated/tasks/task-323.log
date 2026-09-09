@@ -1,0 +1,3 @@
+Backend /health: 200
+Backend /docs: 200
+Frontend root: 200

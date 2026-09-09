@@ -1,0 +1,10 @@
+{"name":"__init__.py","sizeBytes":"29"}
+{"name":"__pycache__","isDir":true}
+{"name":"api","isDir":true}
+{"name":"main.py","sizeBytes":"2092"}
+{"name":"models","isDir":true}
+{"name":"schemas","isDir":true}
+{"name":"services","isDir":true}
+{"name":"utils","isDir":true}
+
+Summary: This directory contains 6 subdirectories and 2 files.

@@ -1,0 +1,30 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\CasesPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -153,24 +153,6 @@
+ 
+       {/* Backend API Connection Status Banner */}
+       <ApiStatusBanner loading={loading} error={error} onRetry={fetchCases} label="CASES API" />
+-              OPERATIONAL CASE DOSSIERS
+-            </h1>
+-          </div>
+-          <p className="text-xs text-slate-400 mt-1">
+-            Active RICO enterprises, grand jury indictments, and cross-agency task force files
+-          </p>
+-        </div>
+-
+-        <Button
+-          variant="cyan"
+-          size="sm"
+-          onClick={() => setIsCreateModalOpen(true)}
+-          className="flex items-center space-x-1.5"
+-        >
+-          <Plus className="h-4 w-4" />
+-          <span>Initiate New Investigation</span>
+-        </Button>
+-      </div>
+ 
+       {/* Case Overview Metrics */}
+       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

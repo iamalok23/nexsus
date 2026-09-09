@@ -1,0 +1,28 @@
+
+The command exited with code 0.
+Output:
+Collecting networkx
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting uvicorn
+  Downloading uvicorn-0.52.4-py3-none-any.whl.metadata (6.6 kB)
+Collecting sqlalchemy
+  Downloading sqlalchemy-2.0.52-cp314-cp314-win_amd64.whl.metadata (9.9 kB)
+Collecting python-multipart
+  Downloading python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+Collecting click>=7.0 (from uvicorn)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: h11>=0.8 in .\.venv\Lib\site-packages (from uvicorn) (0.16.0)
+Collecting greenlet>=1 (from sqlalchemy)
+  Downloading greenlet-3.5.5-cp314-cp314-win_amd64.whl.metadata (3.9 kB)
+Requirement already satisfied: typing-extensions>=4.6.0 in .\.venv\Lib\site-packages (from sqlalchemy) (4.16.0)
+Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+Downloading uvicorn-0.52.4-py3-none-any.whl (79 kB)
+Downloading sqlalchemy-2.0.52-cp314-cp314-win_amd64.whl (2.2 MB)
+   ---------------------------------------- 2.2/2.2 MB 3.9 MB/s  0:00:00
+Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading greenlet-3.5.5-cp314-cp314-win_amd64.whl (327 kB)
+Installing collected packages: python-multipart, networkx, greenlet, click, uvicorn, sqlalchemy
+
+Successfully installed click-8.5.0 greenlet-3.5.5 networkx-3.6.1 python-multipart-0.0.32 sqlalchemy-2.0.52 uvicorn-0.52.4
+

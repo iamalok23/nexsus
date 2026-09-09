@@ -1,0 +1,7 @@
+{"name":".venv","isDir":true}
+{"name":"audit_log.jsonl","sizeBytes":"1184"}
+{"name":"backend","isDir":true}
+{"name":"start_nexus.bat","sizeBytes":"902"}
+{"name":"start_nexus.ps1","sizeBytes":"1431"}
+
+Summary: This directory contains 2 subdirectories and 3 files.

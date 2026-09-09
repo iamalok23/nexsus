@@ -1,0 +1,10 @@
+
+The command exited with code 1.
+Output:
+
+> nexus@0.0.0 build
+> tsc -b && vite build
+
+src/main.tsx(1,1): error TS1109: Expression expected.
+src/main.tsx(1,11): error TS1005: ';' expected.
+

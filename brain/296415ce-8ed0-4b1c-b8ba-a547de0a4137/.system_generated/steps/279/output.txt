@@ -1,0 +1,15 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EntityProfilePage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -127,6 +127,9 @@
+         ))}
+       </div>
+ 
++      {/* Backend API Connection Status Banner */}
++      <ApiStatusBanner loading={loading} error={error} onRetry={fetchEntityData} label={`ENTITY DOSSIER API (${person.name})`} />
++
+       {/* Target Dossier Header Card */}
+       <Card className="bg-[#0c121e] border-slate-800 p-5 relative overflow-hidden">
+         <div className="absolute top-0 right-0 bg-red-950/80 border-b border-l border-red-800/80 px-4 py-1 font-mono text-[9px] font-bold text-red-300 tracking-widest uppercase">
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

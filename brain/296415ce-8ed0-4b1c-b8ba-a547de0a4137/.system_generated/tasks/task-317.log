@@ -1,0 +1,48 @@
+INFO:     Started server process [18248]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58168 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55683 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64334 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54987 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54987 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64334 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64334 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54987 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60172 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64330 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56034 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49670 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61591 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59388 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55951 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59388 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55951 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59388 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55951 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59388 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55951 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51429 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51431 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54848 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51606 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50511 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59241 - "OPTIONS /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54026 - "OPTIONS /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59429 - "OPTIONS /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57594 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63823 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51010 - "GET /api/entities HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57594 - "GET /api/insights/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63823 - "GET /api/network/case-sih-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51010 - "GET /api/entities HTTP/1.1" 200 OK

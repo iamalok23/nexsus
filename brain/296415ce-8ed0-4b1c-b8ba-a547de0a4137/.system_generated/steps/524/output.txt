@@ -1,0 +1,36 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\brain\296415ce-8ed0-4b1c-b8ba-a547de0a4137\walkthrough.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -63,16 +63,21 @@
+ 
+ ---
+ 
+-## 4. How to Run the Backend
+-
+-To start the FastAPI development server:
+-```powershell
+-cd backend
+-& "..\.venv\Scripts\python.exe" -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+-```
+-
+-Once running:
++## 4. Live Hosting & Access
++
++Both backend and frontend servers are actively running concurrently in background tasks:
++
++### Frontend (React + Vite + Tailwind CSS)
++- **Local URL**: [http://localhost:5173](http://localhost:5173/)
++- **Network URL**: `http://10.11.0.186:5173/`
++- **Build Status**: Verified (`npm run build` exits 0, Tailwind CSS bundle 35.72 kB)
++- **HTTP Status**: `200 OK`
++
++### Backend (FastAPI + SQLite + NetworkX)
++- **Local URL**: [http://localhost:8000](http://localhost:8000/)
+ - **Interactive OpenAPI Documentation (Swagger UI)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+ - **Alternative Documentation (ReDoc)**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+ - **Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
++- **Cases API**: [http://localhost:8000/api/cases](http://localhost:8000/api/cases)
++- **HTTP Status**: `200 OK`
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

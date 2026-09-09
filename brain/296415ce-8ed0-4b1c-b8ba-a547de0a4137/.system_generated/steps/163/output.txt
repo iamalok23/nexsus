@@ -1,0 +1,11 @@
+{"name":"__init__.py","sizeBytes":"793"}
+{"name":"__pycache__","isDir":true}
+{"name":"case_service.py","sizeBytes":"2675"}
+{"name":"entity_service.py","sizeBytes":"961"}
+{"name":"extraction_service.py","sizeBytes":"5150"}
+{"name":"insight_service.py","sizeBytes":"1416"}
+{"name":"mock_data.py","sizeBytes":"20394"}
+{"name":"network_service.py","sizeBytes":"5053"}
+{"name":"upload_service.py","sizeBytes":"4652"}
+
+Summary: This directory contains 1 subdirectories and 8 files.

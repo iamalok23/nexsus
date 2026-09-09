@@ -1,0 +1,22 @@
+
+The command exited with code 1.
+Output:
+
+> nexus@0.0.0 build
+> tsc -b && vite build
+
+src/components/common/AlertCard.tsx(28,12): error TS2678: Type '"SIGINT INTERCEPT"' is not comparable to type '"CDR CLUSTER" | "FASTag ANPR" | "BANK / UPI FLAGGED" | "AI PATTERN ENGINE"'.
+src/components/common/AlertCard.tsx(30,12): error TS2678: Type '"ANPR CAMERA"' is not comparable to type '"CDR CLUSTER" | "FASTag ANPR" | "BANK / UPI FLAGGED" | "AI PATTERN ENGINE"'.
+src/components/common/AlertCard.tsx(32,12): error TS2678: Type '"AI PREDICTIVE RISK"' is not comparable to type '"CDR CLUSTER" | "FASTag ANPR" | "BANK / UPI FLAGGED" | "AI PATTERN ENGINE"'.
+src/components/common/AlertCard.tsx(82,44): error TS2339: Property 'relatedCaseNumber' does not exist on type 'ThreatAlert'.
+src/components/common/AlertCard.tsx(93,20): error TS2339: Property 'relatedCaseNumber' does not exist on type 'ThreatAlert'.
+src/components/common/AlertCard.tsx(98,36): error TS2339: Property 'relatedCaseNumber' does not exist on type 'ThreatAlert'.
+src/pages/TimelinePage.tsx(16,10): error TS2305: Module '"../data/mockData"' has no exported member 'mockTimelineEvents'.
+src/pages/TimelinePage.tsx(17,10): error TS2305: Module '"../types"' has no exported member 'TimelineEvent'.
+src/pages/TimelinePage.tsx(17,25): error TS2305: Module '"../types"' has no exported member 'EventCategory'.
+src/pages/TimelinePage.tsx(41,29): error TS7006: Parameter 'n' implicitly has an 'any' type.
+src/pages/TimelinePage.tsx(179,40): error TS7006: Parameter 'name' implicitly has an 'any' type.
+src/pages/TimelinePage.tsx(179,46): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/pages/TimelinePage.tsx(232,50): error TS7006: Parameter 'name' implicitly has an 'any' type.
+src/pages/TimelinePage.tsx(232,56): error TS7006: Parameter 'i' implicitly has an 'any' type.
+

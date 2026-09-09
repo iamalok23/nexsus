@@ -1,0 +1,15 @@
+{"name":".vscode","isDir":true}
+{"name":"AI native criminal system","isDir":true}
+{"name":"a.exe","sizeBytes":"40764"}
+{"name":"criminal system.py","sizeBytes":"27538"}
+{"name":"criminal.py","sizeBytes":"31280"}
+{"name":"criminal1.py","sizeBytes":"20020"}
+{"name":"first.c","sizeBytes":"85"}
+{"name":"first.exe","sizeBytes":"40764"}
+{"name":"first.py","sizeBytes":"56"}
+{"name":"first1.py","sizeBytes":"172"}
+{"name":"first2.c","sizeBytes":"85"}
+{"name":"first2.exe","sizeBytes":"40764"}
+{"name":"frontend.js","sizeBytes":"29667"}
+
+Summary: This directory contains 2 subdirectories and 11 files.

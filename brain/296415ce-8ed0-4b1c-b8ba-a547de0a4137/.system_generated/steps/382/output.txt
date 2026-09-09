@@ -1,0 +1,85 @@
+
+The command exited with code 0.
+Output:
+=== Conv de4af87e-228e-4ca7-8d2e-80c696fe372e ===
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\brain\de4af87e-228e-4ca7-8d2e-80c696fe372e\scratch\main.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\brain\de4af87e-228e-4ca7-8d2e-80c696fe372e\scratch\security_module.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\brain\de4af87e-228e-4ca7-8d2e-80c696fe372e\scratch\test_api.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\brain\de4af87e-228e-4ca7-8d2e-80c696fe372e\scratch\test_suite.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\security_module.py
+=== Conv fb69bf55-26d8-4420-a8a5-e461b2943c07 ===
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\App.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\AlertCard.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\DataTable.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\EntityCard.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\EvidenceCard.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\MetricCard.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\AppLayout.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\Sidebar.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\layout\TopNav.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\network\NetworkGraphContainer.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\badge.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\button.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\card.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\dialog.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\input.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\ui\tabs.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\context\ThemeContext.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\data\mockData.ts
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\lib\utils.ts
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\CasesPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\DashboardPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EntityProfilePage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EvidenceDetailsPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\LoginPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\NetworkAnalysisPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\SettingsPage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\TimelinePage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\UploadEvidencePage.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\types\index.ts
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\vite.config.ts
+=== Conv 296415ce-8ed0-4b1c-b8ba-a547de0a4137 ===
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\.env.example
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\README.md
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\cases.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\entities.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\health.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\insights.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\network.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\router.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\api\upload.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\main.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\models\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\models\base.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\models\case.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\models\entity.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\models\evidence.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\case.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\common.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\entity.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\insight.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\network.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\schemas\upload.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\case_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\entity_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\extraction_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\insight_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\mock_data.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\network_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\services\upload_service.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\utils\__init__.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\utils\config.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\utils\database.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\utils\errors.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\requirements.txt
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\tests\test_phase1.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\tests\test_upload.py
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\components\common\ApiStatusBanner.tsx
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\lib\api.ts
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\start_nexus.bat
+  C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\start_nexus.ps1
+

@@ -1,0 +1,27 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\types\index.ts. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -193,4 +193,21 @@
+   subtext: string
+   sparkline?: number[]
+ }
++
++export type EventCategory = 'wiretap' | 'financial' | 'sighting' | 'warrant' | 'comm' | 'border'
++
++export interface TimelineEvent {
++  id: string
++  timestamp: string
++  title: string
++  description: string
++  category: EventCategory
++  entityIds: string[]
++  entityNames: string[]
++  caseId: string
++  severity: 'critical' | 'high' | 'info' | 'warning'
++  location: string
++  confidenceScore: number
++  evidenceRef?: string
++}
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

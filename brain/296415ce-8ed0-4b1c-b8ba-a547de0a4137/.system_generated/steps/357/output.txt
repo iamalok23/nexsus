@@ -1,0 +1,14 @@
+{"name":".gitignore","sizeBytes":"253"}
+{"name":"README.md","sizeBytes":"1027"}
+{"name":"eslint.config.js","sizeBytes":"568"}
+{"name":"index.html","sizeBytes":"367"}
+{"name":"node_modules","isDir":true}
+{"name":"package-lock.json","sizeBytes":"106080"}
+{"name":"package.json","sizeBytes":"799"}
+{"name":"postcss.config.js","sizeBytes":"72"}
+{"name":"public","isDir":true}
+{"name":"src","isDir":true}
+{"name":"tailwind.config.js","sizeBytes":"121"}
+{"name":"vite.config.js","sizeBytes":"161"}
+
+Summary: This directory contains 3 subdirectories and 9 files.

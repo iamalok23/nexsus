@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+
+Name               Path                                                                     OriginalFolder
+----               ----                                                                     --------------
+tailwind.config.js C:\$Recycle.Bin\S-1-5-21-363773921-185862297-2861082776-1002\$R02EFWD.js               
+postcss.config.js  C:\$Recycle.Bin\S-1-5-21-363773921-185862297-2861082776-1002\$R9LJTB2.js               
+tailwind.config.js C:\$Recycle.Bin\S-1-5-21-363773921-185862297-2861082776-1002\$RJHCO9T.js               
+chapter 3          C:\$Recycle.Bin\S-1-5-21-363773921-185862297-2861082776-1002\$RTXWZMO                  
+postcss.config.js  C:\$Recycle.Bin\S-1-5-21-363773921-185862297-2861082776-1002\$RZFKRNB.js               
+
+
+

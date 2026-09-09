@@ -1,0 +1,13 @@
+{"name":"App.css","sizeBytes":"2891"}
+{"name":"App.tsx","sizeBytes":"1806"}
+{"name":"assets","isDir":true}
+{"name":"components","isDir":true}
+{"name":"context","isDir":true}
+{"name":"data","isDir":true}
+{"name":"index.css","sizeBytes":"2979"}
+{"name":"lib","isDir":true}
+{"name":"main.tsx","sizeBytes":"230"}
+{"name":"pages","isDir":true}
+{"name":"types","isDir":true}
+
+Summary: This directory contains 7 subdirectories and 4 files.

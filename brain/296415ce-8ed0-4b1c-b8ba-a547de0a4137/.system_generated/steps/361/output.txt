@@ -1,0 +1,9 @@
+{"name":"App.css"}
+{"name":"App.jsx","sizeBytes":"28992"}
+{"name":"Python proggramming ML","isDir":true}
+{"name":"assets","isDir":true}
+{"name":"import React, { useState, useEffect, use.js","sizeBytes":"29667"}
+{"name":"index.css","sizeBytes":"22"}
+{"name":"main.jsx","sizeBytes":"229"}
+
+Summary: This directory contains 2 subdirectories and 5 files.

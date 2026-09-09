@@ -1,0 +1,60 @@
+
+The command exited with code 0.
+Output:
+gcc
+gcc first.c
+gcc firs.c
+gcc first2.c
+./a.exe
+pip install networkx
+python -m pip install networkx
+criminal.py
+npm create vite@latest crime-dashboard -- --template react
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+y
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+cd "c:\C proggramming\crime-dashboard"
+npm create vite@latest intel-dashboard -- --template react`
+cd intel-dashboard
+h + enter
+cd intel-dashboard
+npm install cytoscape react-cytoscapejs`
+npm install -D tailwindcss postcss autoprefixer`
+npx tailwindcss init -p
+npm run dev
+cd intel-dashboard
+npm run dev
+npm install -D tailwindcss postcss autoprefixer
+cd intel-dashboard
+npm install -D tailwindcss postcss autoprefixer
+npm run dev
+y
+npm run dev
+npm install -D @tailwindcss/postcss
+cd "C:\C proggramming\AI native criminal system\intel-dashboard"
+npm install -D @tailwindcss/postcss
+npm run dev
+cd "C:\C proggramming\AI native criminal system\intel-dashboard"
+npm run dev
+word = "amazing"
+b = "abcdefghijklmnopqrstuvwxyz" 
+b= "abcdefghijklmnopqrstuvwxyz" b[1:9:2]
+cd "C:\C proggramming\AI native criminal system\intel-dashboard"
+npm run  dev
+C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch
+cd "C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend"
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\
+start_nexus.bat
+npx localtunnel --port 5173
+cd "C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch"
+mkdir NEXUS
+Copy-Item -Path ".\nexus" -Destination ".\NEXUS\frontend" -Recurse
+Remove-Item -Path ".\NEXUS" -Recurse -Force
+dir
+Remove-Item -Path ".\NEXUS" -Recurse -Force
+dir
+Get-ChildItem -Path "C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch" -Recurse -Filter package.json -ErrorAction SilentlyContinue | Select-Object FullName
+Get-ChildItem -Path "C:\Users\Nityam Jaiswal\.gemini\antigravity" -Recurse -Filter package.json -ErrorAction SilentlyContinue | Select-Object FullName
+

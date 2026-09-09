@@ -1,0 +1,27 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\NetworkAnalysisPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -109,6 +109,9 @@
+         </div>
+       </div>
+ 
++      {/* Backend API Connection Status Banner */}
++      <ApiStatusBanner loading={loading} error={error} onRetry={fetchNetwork} label="NETWORK GRAPH API (NETWORKX)" />
++
+       {/* Pathfinder Subpanel */}
+       {pathfinderOpen && (
+         <Card className="bg-[#0c121e] border-cyan-500/50 p-3">
+@@ -157,9 +157,9 @@
+         </Card>
+       )}
+ 
+-      {/* Simplified Presentation Graph */}
++      {/* Presentation Graph Powered by NetworkX */}
+       <NetworkGraphContainer
+-        initialData={mockNetworkGraph}
++        initialData={networkData}
+         height="h-[calc(100vh-210px)] min-h-[560px]"
+       />
+     </div>
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-09-09T16:06:44+05:30
+Prompt: Wait for npm install to finish
+Early Termination: 296415ce-8ed0-4b1c-b8ba-a547de0a4137/task-410
+
+[2026-09-09T16:06:38+05:30] Timer cancelled: early-termination condition (296415ce-8ed0-4b1c-b8ba-a547de0a4137/task-410) met by a message from 296415ce-8ed0-4b1c-b8ba-a547de0a4137/task-410.

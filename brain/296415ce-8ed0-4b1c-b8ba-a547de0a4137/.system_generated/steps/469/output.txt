@@ -1,0 +1,14 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\TimelinePage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -20,7 +20,7 @@
+ import { Button } from '../components/ui/button'
+ import { Input } from '../components/ui/input'
+ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog'
+-import { cn } from '../../lib/utils'
++import { cn } from '../lib/utils'
+ 
+ export const TimelinePage: React.FC = () => {
+   const [events, setEvents] = useState<TimelineEvent[]>(mockTimelineEvents)
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

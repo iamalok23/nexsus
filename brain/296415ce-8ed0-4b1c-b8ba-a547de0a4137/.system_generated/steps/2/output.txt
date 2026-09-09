@@ -1,0 +1,5 @@
+{"name":".venv","isDir":true}
+{"name":"audit_log.jsonl","sizeBytes":"1184"}
+{"name":"nexus","isDir":true}
+
+Summary: This directory contains 2 subdirectories and 1 files.

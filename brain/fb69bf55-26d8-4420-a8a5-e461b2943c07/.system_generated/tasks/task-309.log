@@ -1,0 +1,18 @@
+
+> nexus@0.0.0 dev
+> vite --host --port 5173
+
+
+  VITE v8.2.2  ready in 189 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.11.2.57:5173/  Wi-Fi
+2:29:21 am [vite] (client) hmr update /src/index.css
+2:29:34 am [vite] (client) hmr update /src/index.css
+2:29:46 am [vite] (client) hmr update /src/pages/DashboardPage.tsx, /src/index.css
+2:29:54 am [vite] (client) hmr update /src/pages/DashboardPage.tsx, /src/index.css
+2:29:59 am [vite] (client) hmr update /src/pages/DashboardPage.tsx, /src/index.css
+2:30:05 am [vite] (client) hmr update /src/pages/NetworkAnalysisPage.tsx, /src/index.css
+2:30:17 am [vite] (client) hmr update /src/pages/NetworkAnalysisPage.tsx, /src/index.css
+2:30:29 am [vite] (client) hmr update /src/pages/EntityProfilePage.tsx, /src/index.css
+2:30:36 am [vite] (client) hmr update /src/pages/EntityProfilePage.tsx, /src/index.css

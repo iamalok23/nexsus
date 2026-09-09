@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+> nexus@0.0.0 build
+> tsc -b && vite build
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:10:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 1882 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.46 kB │ gzip:   0.30 kB
+dist/assets/index-B2gP1xH1.css   35.72 kB │ gzip:   6.89 kB
+dist/assets/index-Bdr4wB3p.js   387.27 kB │ gzip: 114.53 kB
+
+✓ built in 803ms
+

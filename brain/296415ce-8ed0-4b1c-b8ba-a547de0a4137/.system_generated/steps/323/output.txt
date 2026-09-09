@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+Backend /health: 200
+Backend /docs: 200
+Frontend root: 200
+

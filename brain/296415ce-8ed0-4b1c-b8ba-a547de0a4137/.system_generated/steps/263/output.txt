@@ -1,0 +1,71 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\NetworkAnalysisPage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -1,4 +1,4 @@
+-import React, { useState } from 'react'
++import React, { useState, useEffect, useCallback } from 'react'
+ import { 
+   Share2, 
+   Download, 
+@@ -12,8 +12,14 @@
+ import { Button } from '../components/ui/button'
+ import { Badge } from '../components/ui/badge'
+ import { Card } from '../components/ui/card'
++import { api } from '../lib/api'
++import { ApiStatusBanner } from '../components/common/ApiStatusBanner'
++import { NetworkGraphData } from '../types'
+ 
+ export const NetworkAnalysisPage: React.FC = () => {
++  const [networkData, setNetworkData] = useState<NetworkGraphData>(mockNetworkGraph)
++  const [loading, setLoading] = useState(true)
++  const [error, setError] = useState<string | null>(null)
+   const [pathfinderOpen, setPathfinderOpen] = useState(false)
+   const [sourceNode, setSourceNode] = useState('ent-1')
+   const [targetNode, setTargetNode] = useState('ent-2')
+@@ -20,11 +20,31 @@
+ 
++  const fetchNetwork = useCallback(async () => {
++    try {
++      setLoading(true)
++      setError(null)
++      const data = await api.getNetwork('case-sih-01')
++      if (data && data.nodes && data.nodes.length > 0) {
++        setNetworkData(data)
++      }
++    } catch (err: unknown) {
++      const message = err instanceof Error ? err.message : 'Backend connection error'
++      setError(message)
++    } finally {
++      setLoading(false)
++    }
++  }, [])
++
++  useEffect(() => {
++    fetchNetwork()
++  }, [fetchNetwork])
++
+   const handleRunPathfinder = () => {
+-    // Demonstration of shortest criminal link between Rahul Verma and target
++    // Demonstration of shortest link between Rahul Verma and target
+     if (targetNode === 'ent-b1' || targetNode === 'ent-2') {
+       setPathResult([
+-        'Rahul Verma (Kingpin - Delhi)',
+-        'Amit Yadav (Hawala Handler - Ghaziabad)',
+-        'Canara Bank Hawala Acct (₹12.5L Wire)'
++        'Rahul Verma (Primary Coordinator - Delhi)',
++        'Amit Yadav (Financial Link - Ghaziabad)',
++        'Canara Bank Commercial Acct #0492 (₹12.5L Transfer)'
+       ])
+     } else {
+       setPathResult([
+@@ -35,7 +35,7 @@
+   }
+ 
+   const handleExport = () => {
+-    alert('Exporting Graph Analysis Summary (PDF / PNG Report for SIH Jury Evaluation)')
++    alert('Exporting Graph Analysis Summary (NetworkX Topological Report)')
+   }
+ 
+   return (
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

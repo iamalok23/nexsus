@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+
+LocalAddress                        LocalPort RemoteAddress                       RemotePort State       AppliedSetting
+------------                        --------- -------------                       ---------- -----       --------------
+127.0.0.1                           8000      127.0.0.1                           54609      TimeWait                  
+127.0.0.1                           8000      127.0.0.1                           58430      TimeWait                  
+127.0.0.1                           8000      127.0.0.1                           56655      TimeWait                  
+127.0.0.1                           8000      127.0.0.1                           58083      TimeWait                  
+127.0.0.1                           8000      127.0.0.1                           54026      TimeWait                  
+127.0.0.1                           8000      127.0.0.1                           49238      TimeWait                  
+0.0.0.0                             8000      0.0.0.0                             0          Listen                    
+
+
+

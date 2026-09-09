@@ -1,0 +1,18 @@
+{"name":".gitignore","sizeBytes":"253"}
+{"name":".oxlintrc.json","sizeBytes":"245"}
+{"name":"README.md","sizeBytes":"1278"}
+{"name":"dist","isDir":true}
+{"name":"index.html","sizeBytes":"1185"}
+{"name":"node_modules","isDir":true}
+{"name":"package-lock.json","sizeBytes":"82059"}
+{"name":"package.json","sizeBytes":"732"}
+{"name":"postcss.config.js","sizeBytes":"80"}
+{"name":"public","isDir":true}
+{"name":"src","isDir":true}
+{"name":"tailwind.config.js","sizeBytes":"2136"}
+{"name":"tsconfig.app.json","sizeBytes":"705"}
+{"name":"tsconfig.json","sizeBytes":"119"}
+{"name":"tsconfig.node.json","sizeBytes":"558"}
+{"name":"vite.config.ts","sizeBytes":"279"}
+
+Summary: This directory contains 4 subdirectories and 12 files.

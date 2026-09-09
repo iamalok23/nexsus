@@ -1,0 +1,14 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\TimelinePage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -176,7 +176,7 @@
+ 
+                 <div className="flex flex-wrap items-center gap-1.5">
+                   <span className="text-slate-400 font-semibold uppercase">Correlated Targets:</span>
+-                  {ev.entityNames.map((name, i) => (
++                  {ev.entityNames.map((name: string, i: number) => (
+                     <span key={i} className="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-cyan-300">
+                       {name}
+                     </span>
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

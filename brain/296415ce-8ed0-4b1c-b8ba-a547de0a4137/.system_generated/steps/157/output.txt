@@ -1,0 +1,7 @@
+{"name":".env.example","sizeBytes":"383"}
+{"name":"README.md","sizeBytes":"7572"}
+{"name":"app","isDir":true}
+{"name":"requirements.txt","sizeBytes":"156"}
+{"name":"tests","isDir":true}
+
+Summary: This directory contains 2 subdirectories and 3 files.

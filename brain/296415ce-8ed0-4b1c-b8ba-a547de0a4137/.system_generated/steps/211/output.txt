@@ -1,0 +1,8 @@
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\EntityProfilePage.tsx","LineNumber":17,"LineContent":"import { mockEntities, mockEvidence, mockNetworkGraph } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\NetworkAnalysisPage.tsx","LineNumber":11,"LineContent":"import { mockNetworkGraph, mockEntities } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\DashboardPage.tsx","LineNumber":24,"LineContent":"} from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\CasesPage.tsx","LineNumber":17,"LineContent":"import { mockCases, mockEntities, mockEvidence } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\EvidenceDetailsPage.tsx","LineNumber":19,"LineContent":"import { mockEvidence, mockEntities } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\UploadEvidencePage.tsx","LineNumber":14,"LineContent":"import { mockEvidence } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\pages\\TimelinePage.tsx","LineNumber":16,"LineContent":"import { mockTimelineEvents, mockEntities, mockCases } from '../data/mockData'"}
+{"File":"C:\\Users\\Nityam Jaiswal\\.gemini\\antigravity\\scratch\\nexus\\src\\components\\layout\\TopNav.tsx","LineNumber":17,"LineContent":"import { mockAlerts, mockEntities, mockCases } from '../../data/mockData'"}

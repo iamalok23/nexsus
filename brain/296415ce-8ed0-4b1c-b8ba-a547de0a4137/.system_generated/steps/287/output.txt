@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+Testing frontend requested endpoints against live backend:
+/api/cases -> HTTP 200, CORS: http://localhost:5173, Size: 775 bytes
+/api/cases/case-sih-01 -> HTTP 200, CORS: http://localhost:5173, Size: 773 bytes
+/api/network/case-sih-01 -> HTTP 200, CORS: http://localhost:5173, Size: 4603 bytes
+/api/entities/ent-1 -> HTTP 200, CORS: http://localhost:5173, Size: 873 bytes
+/api/insights/case-sih-01 -> HTTP 200, CORS: http://localhost:5173, Size: 3535 bytes
+

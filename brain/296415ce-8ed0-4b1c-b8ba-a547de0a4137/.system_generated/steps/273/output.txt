@@ -1,0 +1,112 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\nexus\src\pages\EntityProfilePage.tsx. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -1,4 +1,4 @@
+-import React from 'react'
++import React, { useState, useEffect, useCallback } from 'react'
+ import { useParams, useNavigate, Link } from 'react-router-dom'
+ import { 
+   UserCheck, 
+@@ -20,6 +20,9 @@
+ import { Button } from '../components/ui/button'
+ import { EvidenceCard } from '../components/common/EvidenceCard'
+ import { cn } from '../lib/utils'
++import { api } from '../lib/api'
++import { ApiStatusBanner } from '../components/common/ApiStatusBanner'
++import { Entity } from '../types'
+ 
+ export const EntityProfilePage: React.FC = () => {
+   const { id } = useParams<{ id: string }>()
+@@ -26,6 +26,45 @@
+-
+-  // Find target or fallback to Rahul Verma (ent-1)
+-  const person = mockEntities.find(e => e.id === id) || mockEntities[0]
++  const initialPerson = mockEntities.find(e => e.id === id) || mockEntities[0]
++  const [person, setPerson] = useState<Entity>(initialPerson)
++  const [entityList, setEntityList] = useState<Entity[]>(mockEntities)
++  const [loading, setLoading] = useState(true)
++  const [error, setError] = useState<string | null>(null)
++
++  const fetchEntityData = useCallback(async () => {
++    const targetId = id || 'ent-1'
++    try {
++      setLoading(true)
++      setError(null)
++      const [entityRes, allEntitiesRes] = await Promise.allSettled([
++        api.getEntity(targetId),
++        api.getEntities(),
++      ])
++
++      if (entityRes.status === 'fulfilled' && entityRes.value) {
++        setPerson(entityRes.value)
++      } else {
++        const fallback = mockEntities.find(e => e.id === targetId) || mockEntities[0]
++        setPerson(fallback)
++        if (entityRes.status === 'rejected') {
++          const reason = entityRes.reason
++          const message = reason instanceof Error ? reason.message : 'Failed to fetch entity from backend'
++          setError(message)
++        }
++      }
++
++      if (allEntitiesRes.status === 'fulfilled' && allEntitiesRes.value && allEntitiesRes.value.length > 0) {
++        setEntityList(allEntitiesRes.value)
++      }
++    } catch (err: unknown) {
++      const message = err instanceof Error ? err.message : 'Backend connection error'
++      setError(message)
++    } finally {
++      setLoading(false)
++    }
++  }, [id])
++
++  useEffect(() => {
++    fetchEntityData()
++  }, [fetchEntityData])
+ 
+   // Direct associates from graph edges
+   const associateEdges = mockNetworkGraph.edges.filter(
+@@ -33,7 +33,7 @@
+ 
+   const associates = associateEdges.map(edge => {
+     const peerId = edge.source === person.id ? edge.target : edge.source
+-    const peer = mockEntities.find(e => e.id === peerId)
++    const peer = entityList.find(e => e.id === peerId) || mockEntities.find(e => e.id === peerId)
+     return {
+       edge,
+       peer: peer || {
+@@ -40,9 +40,19 @@
+         name: edge.label,
+-        type: 'suspect',
++        type: 'suspect' as const,
+         riskScore: 75,
++        riskLevel: 'HIGH' as const,
+         role: 'Affiliated Contact',
+         city: person.city,
+-        status: 'Monitored'
++        status: 'Monitored' as const,
++        aliases: [],
++        primaryAffiliation: 'Syndicate Contact',
++        lastKnownLocation: person.lastKnownLocation,
++        tags: ['Associate'],
++        details: {
++          knownAssociatesCount: 1,
++          totalFinancialFlow: '₹0',
++          wiretapsCount: 0,
++        },
+       }
+     }
+   })
+@@ -53,8 +53,8 @@
+     <div className="space-y-6 font-mono">
+       {/* Target Quick Switcher Strip */}
+       <div className="flex items-center space-x-2 overflow-x-auto pb-1 border-b border-slate-800">
+-        <span className="text-[10px] uppercase text-slate-400 font-semibold shrink-0">Switch Suspect:</span>
+-        {mockEntities.slice(0, 8).map(e => (
++        <span className="text-[10px] uppercase text-slate-400 font-semibold shrink-0">Switch Subject:</span>
++        {entityList.slice(0, 8).map(e => (
+           <button
+             key={e.id}
+             onClick={() => navigate(`/person/${e.id}`)}
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

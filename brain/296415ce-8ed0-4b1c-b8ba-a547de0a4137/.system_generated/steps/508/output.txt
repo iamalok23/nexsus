@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+
+
+status       : healthy
+service      : NEXUS Law Enforcement & Intelligence Platform
+version      : 1.0.0
+timestamp    : 2026-09-09T10:39:38.769143+00:00
+dataset      : Synthetic Investigation Dataset
+active_cases : 1
+
+
+
+

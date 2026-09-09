@@ -1,0 +1,21 @@
+The following changes were made by the replace_file_content tool to: C:\Users\Nityam Jaiswal\.gemini\antigravity\scratch\backend\app\utils\errors.py. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -32,6 +32,15 @@
+         )
+ 
+ 
++class InvalidUploadError(NexusException):
++    def __init__(self, message: str, details: dict = None):
++        super().__init__(
++            message=message,
++            status_code=status.HTTP_400_BAD_REQUEST,
++            details=details or {}
++        )
++
++
+ def register_error_handlers(app: FastAPI) -> None:
+     """Register centralized error handlers on the FastAPI app."""
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.
