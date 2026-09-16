@@ -1,6 +1,6 @@
 """Pydantic schemas for Cases."""
 from enum import Enum
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -36,6 +36,38 @@ class CaseBase(BaseModel):
 class CaseCreate(CaseBase):
     status: CaseStatus = Field(default=CaseStatus.ACTIVE)
     case_number: Optional[str] = Field(None, alias="caseNumber", example="CASE-2026-NCR-09")
+
+
+class CaseUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    code_name: Optional[str] = Field(None, alias="codeName")
+    priority: Optional[PriorityLevel] = None
+    lead_investigator: Optional[str] = Field(None, alias="leadInvestigator")
+    agency: Optional[str] = None
+    jurisdiction: Optional[str] = None
+    status: Optional[CaseStatus] = None
+
+    model_config = ConfigDict(populate_by_name=True, from_attributes=True)
+
+
+class CaseStatusUpdate(BaseModel):
+    status: CaseStatus = Field(..., example=CaseStatus.ACTIVE)
+
+    model_config = ConfigDict(populate_by_name=True)
+
+
+class CaseAssignUpdate(BaseModel):
+    lead_investigator: str = Field(..., alias="leadInvestigator", example="ACP Vikramaditya Rathore")
+
+    model_config = ConfigDict(populate_by_name=True)
+
+
+class CaseEntityLinkRequest(BaseModel):
+    entity_id: str = Field(..., alias="entityId", example="ent-1")
+    role_in_case: Optional[str] = Field(default="Subject of Interest", alias="roleInCase", example="Primary Coordinator")
+
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class CaseResponse(CaseBase):

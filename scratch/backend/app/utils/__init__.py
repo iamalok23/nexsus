@@ -6,8 +6,10 @@ from app.utils.errors import (
     CaseNotFoundError,
     EntityNotFoundError,
     InvalidUploadError,
+    DatabaseOperationError,
     register_error_handlers
 )
+from app.utils.auth import get_current_user
 
 __all__ = [
     "settings",
@@ -19,5 +21,7 @@ __all__ = [
     "CaseNotFoundError",
     "EntityNotFoundError",
     "InvalidUploadError",
+    "DatabaseOperationError",
     "register_error_handlers",
+    "get_current_user",
 ]

@@ -3,8 +3,16 @@ import { Outlet } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { TopNav } from './TopNav'
 import { ShieldAlert } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 export const AppLayout: React.FC = () => {
+  const { currentUser, loading } = useAuth()
+
+  // Guard: Do not render layout shell or dashboard chrome if unauthenticated
+  if (loading || !currentUser) {
+    return null
+  }
+
   return (
     <div className="flex min-h-screen bg-slate-100 text-slate-900 dark:bg-[#050913] dark:text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-900 dark:selection:text-cyan-200 transition-colors duration-200">
       <Sidebar />

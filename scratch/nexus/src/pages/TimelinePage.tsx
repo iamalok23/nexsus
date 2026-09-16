@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { 
   Clock, 
   Filter, 
@@ -21,13 +21,42 @@ import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog'
 import { cn } from '../lib/utils'
+import { api } from '../lib/api'
+import { ApiStatusBanner } from '../components/common/ApiStatusBanner'
 
 export const TimelinePage: React.FC = () => {
   const [events, setEvents] = useState<TimelineEvent[]>(mockTimelineEvents)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL')
   const [selectedEntity, setSelectedEntity] = useState<string>('ALL')
   const [searchQuery, setSearchQuery] = useState('')
   const [inspectEvent, setInspectEvent] = useState<TimelineEvent | null>(null)
+
+  const fetchTimeline = useCallback(async () => {
+    try {
+      setLoading(true)
+      setError(null)
+      const data = await api.getTimeline({
+        caseId: 'case-sih-01',
+        category: selectedCategory !== 'ALL' ? selectedCategory : undefined,
+        entityId: selectedEntity !== 'ALL' ? selectedEntity : undefined,
+        search: searchQuery.trim() || undefined
+      })
+      if (data && data.length > 0) {
+        setEvents(data)
+      }
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Backend connection error'
+      setError(message)
+    } finally {
+      setLoading(false)
+    }
+  }, [selectedCategory, selectedEntity, searchQuery])
+
+  useEffect(() => {
+    fetchTimeline()
+  }, [fetchTimeline])
 
   const filteredEvents = events.filter((ev) => {
     if (selectedCategory !== 'ALL' && ev.category !== selectedCategory) return false
@@ -81,6 +110,9 @@ export const TimelinePage: React.FC = () => {
         </div>
       </div>
 
+      {/* Backend API Connection Status Banner */}
+      <ApiStatusBanner loading={loading} error={error} onRetry={fetchTimeline} label="TIMELINE API" />
+
       {/* Filter and Correlation Controls */}
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-[#0c121e] p-3 rounded-sm border border-slate-800 text-xs">
         <div className="relative flex-1">
@@ -124,7 +156,7 @@ export const TimelinePage: React.FC = () => {
 
       {/* Chronological Stream */}
       <div className="relative border-l-2 border-slate-800 ml-4 md:ml-6 pl-6 space-y-6">
-        {filteredEvents.map((ev, index) => (
+        {filteredEvents.map((ev) => (
           <div key={ev.id} className="relative group">
             {/* Timeline Node Bullet */}
             <div className={cn(

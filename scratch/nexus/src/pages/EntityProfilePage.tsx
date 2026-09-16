@@ -14,7 +14,7 @@ import {
   Car,
   Tag
 } from 'lucide-react'
-import { mockEntities, mockEvidence, mockNetworkGraph } from '../data/mockData'
+import { mockEntities, mockEvidence, mockNetworkGraph, mockCases } from '../data/mockData'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs'
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
@@ -23,7 +23,7 @@ import { EvidenceCard } from '../components/common/EvidenceCard'
 import { cn } from '../lib/utils'
 import { api } from '../lib/api'
 import { ApiStatusBanner } from '../components/common/ApiStatusBanner'
-import { Entity } from '../types'
+import { Entity, Case } from '../types'
 
 export const EntityProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -31,6 +31,7 @@ export const EntityProfilePage: React.FC = () => {
   const initialPerson = mockEntities.find(e => e.id === id) || mockEntities[0]
   const [person, setPerson] = useState<Entity>(initialPerson)
   const [entityList, setEntityList] = useState<Entity[]>(mockEntities)
+  const [linkedCases, setLinkedCases] = useState<Case[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -39,9 +40,10 @@ export const EntityProfilePage: React.FC = () => {
     try {
       setLoading(true)
       setError(null)
-      const [entityRes, allEntitiesRes] = await Promise.allSettled([
+      const [entityRes, allEntitiesRes, casesRes] = await Promise.allSettled([
         api.getEntity(targetId),
         api.getEntities(),
+        api.getEntityCases(targetId)
       ])
 
       if (entityRes.status === 'fulfilled' && entityRes.value) {
@@ -58,6 +60,12 @@ export const EntityProfilePage: React.FC = () => {
 
       if (allEntitiesRes.status === 'fulfilled' && allEntitiesRes.value && allEntitiesRes.value.length > 0) {
         setEntityList(allEntitiesRes.value)
+      }
+
+      if (casesRes.status === 'fulfilled' && casesRes.value && casesRes.value.length > 0) {
+        setLinkedCases(casesRes.value)
+      } else {
+        setLinkedCases(mockCases.slice(0, 1))
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Backend connection error'
@@ -276,6 +284,27 @@ export const EntityProfilePage: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                <div className="pt-2 border-t border-slate-800">
+                  <span className="text-[10px] text-slate-400 uppercase font-semibold block mb-1">
+                    Associated Investigation Charters ({linkedCases.length})
+                  </span>
+                  <div className="space-y-1 text-slate-300">
+                    {linkedCases.map(c => (
+                      <div 
+                        key={c.id} 
+                        onClick={() => navigate('/cases')}
+                        className="flex items-center justify-between p-2 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500 cursor-pointer transition-colors"
+                      >
+                        <div className="flex flex-col">
+                          <span className="text-[11px] font-bold text-cyan-300">OP. {c.codeName} // {c.caseNumber}</span>
+                          <span className="text-[10px] text-slate-400 truncate max-w-[200px]">{c.title}</span>
+                        </div>
+                        <Badge variant="cyan">{c.status}</Badge>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { 
   FileText, 
   Headphones, 
@@ -23,10 +24,12 @@ export const EvidenceCard: React.FC<{ evidence: Evidence; onInspect?: (e: Eviden
   evidence,
   onInspect,
 }) => {
+  const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
 
-  const copyHash = () => {
+  const copyHash = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation()
     navigator.clipboard.writeText(evidence.hashSHA256)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
@@ -49,7 +52,10 @@ export const EvidenceCard: React.FC<{ evidence: Evidence; onInspect?: (e: Eviden
 
   return (
     <>
-      <Card className="hover:border-slate-700 transition-all font-mono group bg-[#0d1320]">
+      <Card 
+        onClick={() => navigate(`/evidence/${evidence.id}`)}
+        className="hover:border-cyan-500/50 hover:shadow-[0_0_15px_rgba(0,240,255,0.08)] transition-all font-mono group bg-[#0d1320] cursor-pointer"
+      >
         <CardHeader className="p-3.5 pb-2 border-b border-slate-800/80">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -106,7 +112,7 @@ export const EvidenceCard: React.FC<{ evidence: Evidence; onInspect?: (e: Eviden
             <div className="flex items-center justify-between">
               <span>Integrity Hash:</span>
               <button 
-                onClick={copyHash}
+                onClick={(e) => copyHash(e)}
                 className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
                 title="Copy SHA-256 Hash"
               >
@@ -118,15 +124,30 @@ export const EvidenceCard: React.FC<{ evidence: Evidence; onInspect?: (e: Eviden
             </div>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 flex gap-2">
             <Button 
               variant="outline" 
               size="sm" 
-              className="w-full flex items-center justify-center space-x-1.5 h-7"
-              onClick={() => setModalOpen(true)}
+              className="flex-1 flex items-center justify-center space-x-1.5 h-7 text-[11px]"
+              onClick={(e) => {
+                e.stopPropagation()
+                setModalOpen(true)
+              }}
             >
               <Eye className="h-3 w-3" />
-              <span>Inspect Raw Intercept</span>
+              <span>Inspect Raw</span>
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              className="flex-1 flex items-center justify-center space-x-1.5 h-7 text-[11px] bg-cyan-950/60 hover:bg-cyan-900 border border-cyan-800 text-cyan-300"
+              onClick={(e) => {
+                e.stopPropagation()
+                navigate(`/evidence/${evidence.id}`)
+              }}
+            >
+              <ExternalLink className="h-3 w-3" />
+              <span>Dossier</span>
             </Button>
           </div>
         </CardContent>

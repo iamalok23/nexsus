@@ -1,5 +1,5 @@
 """NEXUS Backend Configuration."""
-from typing import List
+from typing import List, Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     
     # CORS Origins
     CORS_ORIGINS: str = (
-        "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000"
+        "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000,https://nexsus-4455b.web.app,https://nexsus-4455b.firebaseapp.com"
     )
     
     # Database
@@ -23,6 +23,10 @@ class Settings(BaseSettings):
     
     # Dataset attribution
     DATASET_LABEL: str = "Synthetic Investigation Dataset"
+
+    # Firebase Admin Authentication
+    FIREBASE_PROJECT_ID: str = "nexsus-4455b"
+    FIREBASE_CREDENTIALS_PATH: Optional[str] = None
 
     model_config = SettingsConfigDict(
         env_file=".env",

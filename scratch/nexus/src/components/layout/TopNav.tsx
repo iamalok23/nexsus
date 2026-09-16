@@ -15,6 +15,7 @@ import {
   Clock
 } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext'
+import { useAuth } from '../../context/AuthContext'
 import { mockAlerts, mockEntities } from '../../data/mockData'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
@@ -22,6 +23,7 @@ import { api, HealthResponse } from '../../lib/api'
 
 export const TopNav: React.FC = () => {
   const { theme, toggleTheme } = useTheme()
+  const { currentUser, logout } = useAuth()
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
   const [showSearchResults, setShowSearchResults] = useState(false)
@@ -331,10 +333,12 @@ export const TopNav: React.FC = () => {
           {/* Officer Credentials Badge */}
           <div className="hidden lg:flex items-center space-x-2 pl-2 border-l border-slate-300 dark:border-slate-800">
             <div className="flex h-7 w-7 items-center justify-center rounded-xs bg-slate-100 dark:bg-[#040812] border border-cyan-600/40 dark:border-cyan-500/40 text-cyan-700 dark:text-cyan-400 font-mono text-[11px] font-bold shadow-xs">
-              RS
+              {currentUser?.email ? currentUser.email.slice(0, 2).toUpperCase() : 'RS'}
             </div>
             <div className="text-left font-mono">
-              <div className="text-[11px] font-bold text-slate-800 dark:text-slate-100 leading-tight">INSP R. K. SHARMA</div>
+              <div className="text-[11px] font-bold text-slate-800 dark:text-slate-100 leading-tight truncate max-w-[130px]">
+                {currentUser?.email ? currentUser.email.split('@')[0].toUpperCase() : 'INSP R. K. SHARMA'}
+              </div>
               <div className="text-[8.5px] text-emerald-700 dark:text-emerald-400 flex items-center gap-1 leading-none mt-0.5 font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
                 <span>CLEARANCE LEVEL-4</span>
@@ -342,11 +346,23 @@ export const TopNav: React.FC = () => {
             </div>
           </div>
 
-          <Link to="/login">
-            <Button variant="ghost" size="sm" className="h-8 px-2 text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30" title="Exit Terminal">
-              <LogOut className="h-3.5 w-3.5" />
-            </Button>
-          </Link>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={async () => {
+              try {
+                await logout()
+              } catch (e) {
+                console.warn('Logout error', e)
+              } finally {
+                navigate('/login')
+              }
+            }}
+            className="h-8 px-2 text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30" 
+            title="Exit Terminal (Logout)"
+          >
+            <LogOut className="h-3.5 w-3.5" />
+          </Button>
         </div>
       </div>
     </header>

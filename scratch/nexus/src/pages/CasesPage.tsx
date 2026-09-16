@@ -12,10 +12,13 @@ import {
   Search, 
   CheckCircle2,
   AlertTriangle,
-  ArrowUpRight
+  ArrowUpRight,
+  UserPlus,
+  Trash2,
+  UserCheck
 } from 'lucide-react'
 import { mockCases, mockEntities, mockEvidence } from '../data/mockData'
-import { Case, CaseStatus, PriorityLevel } from '../types'
+import { Case, CaseStatus, PriorityLevel, Entity } from '../types'
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
@@ -35,6 +38,10 @@ export const CasesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const [selectedCase, setSelectedCase] = useState<Case | null>(null)
+  const [caseEntities, setCaseEntities] = useState<Entity[]>([])
+  const [availableEntities, setAvailableEntities] = useState<Entity[]>([])
+  const [selectedEntityToLink, setSelectedEntityToLink] = useState<string>('')
+  const [actionMessage, setActionMessage] = useState<string | null>(null)
 
   // New Case Form State
   const [newCaseTitle, setNewCaseTitle] = useState('')
@@ -63,6 +70,48 @@ export const CasesPage: React.FC = () => {
   useEffect(() => {
     fetchCases()
   }, [fetchCases])
+
+  // Fetch linked entities when a case is inspected
+  useEffect(() => {
+    if (!selectedCase) {
+      setCaseEntities([])
+      return
+    }
+
+    let isMounted = true
+    const fetchEntitiesForCase = async () => {
+      try {
+        const [linked, all] = await Promise.allSettled([
+          api.getCaseEntities(selectedCase.id),
+          api.getEntities()
+        ])
+
+        if (isMounted) {
+          if (linked.status === 'fulfilled' && linked.value && linked.value.length > 0) {
+            setCaseEntities(linked.value)
+          } else {
+            setCaseEntities(mockEntities.slice(0, 4))
+          }
+
+          if (all.status === 'fulfilled' && all.value && all.value.length > 0) {
+            setAvailableEntities(all.value)
+          } else {
+            setAvailableEntities(mockEntities)
+          }
+        }
+      } catch {
+        if (isMounted) {
+          setCaseEntities(mockEntities.slice(0, 4))
+          setAvailableEntities(mockEntities)
+        }
+      }
+    }
+
+    fetchEntitiesForCase()
+    return () => {
+      isMounted = false
+    }
+  }, [selectedCase])
 
   // Filtered cases
   const filteredCases = cases.filter((c) => {
@@ -122,6 +171,53 @@ export const CasesPage: React.FC = () => {
     setNewCaseDescription('')
   }
 
+  const handleStatusChange = async (newStatus: CaseStatus) => {
+    if (!selectedCase) return
+    try {
+      const updated = await api.updateCaseStatus(selectedCase.id, newStatus)
+      setSelectedCase(updated)
+      setCases(cases.map(c => c.id === updated.id ? updated : c))
+      setActionMessage(`Case status updated to: ${newStatus}`)
+      setTimeout(() => setActionMessage(null), 3000)
+    } catch (err: unknown) {
+      const updated = { ...selectedCase, status: newStatus }
+      setSelectedCase(updated)
+      setCases(cases.map(c => c.id === updated.id ? updated : c))
+    }
+  }
+
+  const handleLinkEntity = async () => {
+    if (!selectedCase || !selectedEntityToLink) return
+    try {
+      await api.linkEntityToCase(selectedCase.id, selectedEntityToLink)
+      const targetEntity = availableEntities.find(e => e.id === selectedEntityToLink)
+      if (targetEntity && !caseEntities.some(e => e.id === targetEntity.id)) {
+        setCaseEntities([...caseEntities, targetEntity])
+      }
+      setSelectedEntityToLink('')
+      setActionMessage(`Subject linked to case successfully.`)
+      setTimeout(() => setActionMessage(null), 3000)
+    } catch (err: unknown) {
+      const targetEntity = availableEntities.find(e => e.id === selectedEntityToLink)
+      if (targetEntity && !caseEntities.some(e => e.id === targetEntity.id)) {
+        setCaseEntities([...caseEntities, targetEntity])
+      }
+      setSelectedEntityToLink('')
+    }
+  }
+
+  const handleUnlinkEntity = async (entityId: string) => {
+    if (!selectedCase) return
+    try {
+      await api.unlinkEntityFromCase(selectedCase.id, entityId)
+      setCaseEntities(caseEntities.filter(e => e.id !== entityId))
+      setActionMessage(`Subject unlinked from case.`)
+      setTimeout(() => setActionMessage(null), 3000)
+    } catch {
+      setCaseEntities(caseEntities.filter(e => e.id !== entityId))
+    }
+  }
+
   return (
     <div className="space-y-6 font-mono">
       {/* Header */}
@@ -167,7 +263,7 @@ export const CasesPage: React.FC = () => {
           <CardContent className="p-3.5">
             <span className="text-[10px] text-slate-400 uppercase">Active Federal Warrants</span>
             <div className="text-xl font-bold text-amber-400 mt-1">
-              {cases.reduce((acc, c) => acc + c.warrantsIssued, 0)}
+              {cases.reduce((acc, c) => acc + (c.warrantsIssued || 0), 0)}
             </div>
             <span className="text-[10px] text-slate-400">Title III wiretaps active</span>
           </CardContent>
@@ -175,7 +271,7 @@ export const CasesPage: React.FC = () => {
         <Card className="bg-[#0c121e] border-slate-800">
           <CardContent className="p-3.5">
             <span className="text-[10px] text-slate-400 uppercase">Total Seized Assets</span>
-            <div className="text-xl font-bold text-emerald-400 mt-1">$123.5M</div>
+            <div className="text-xl font-bold text-emerald-400 mt-1">₹12.5 Cr</div>
             <span className="text-[10px] text-slate-400">Escrow & Forfeiture</span>
           </CardContent>
         </Card>
@@ -183,7 +279,7 @@ export const CasesPage: React.FC = () => {
           <CardContent className="p-3.5">
             <span className="text-[10px] text-slate-400 uppercase">Tracked Targets</span>
             <div className="text-xl font-bold text-cyan-400 mt-1">
-              {cases.reduce((acc, c) => acc + c.entitiesCount, 0)}
+              {cases.reduce((acc, c) => acc + (c.entitiesCount || 0), 0)}
             </div>
             <span className="text-[10px] text-slate-400">Suspects & Shell Orgs</span>
           </CardContent>
@@ -213,7 +309,8 @@ export const CasesPage: React.FC = () => {
             <option value="Active Investigation">Active Investigation</option>
             <option value="Interdiction Imminent">Interdiction Imminent</option>
             <option value="Surveillance Phase">Surveillance Phase</option>
-            <option value="Grand Jury">Grand Jury</option>
+            <option value="Chargesheet Filed">Chargesheet Filed</option>
+            <option value="Closed">Closed</option>
           </select>
 
           {/* Priority Filter */}
@@ -272,9 +369,9 @@ export const CasesPage: React.FC = () => {
 
               <div className="flex items-center justify-between text-[11px] pt-1">
                 <div className="flex items-center space-x-3 text-slate-300">
-                  <span>Warrants: <strong className="text-amber-400">{c.warrantsIssued}</strong></span>
-                  <span>Assets: <strong className="text-emerald-400">{c.assetsSeized}</strong></span>
-                  <span>Entities: <strong className="text-cyan-400">{c.entitiesCount}</strong></span>
+                  <span>Warrants: <strong className="text-amber-400">{c.warrantsIssued || 0}</strong></span>
+                  <span>Assets: <strong className="text-emerald-400">{c.assetsSeized || '₹0'}</strong></span>
+                  <span>Entities: <strong className="text-cyan-400">{c.entitiesCount || 0}</strong></span>
                 </div>
 
                 <Button 
@@ -304,6 +401,13 @@ export const CasesPage: React.FC = () => {
               <div className="text-xs text-cyan-400 font-bold">OPERATION {selectedCase.codeName}</div>
             </DialogHeader>
             <div className="space-y-4 text-xs text-slate-300">
+              {actionMessage && (
+                <div className="p-2 rounded bg-cyan-950/80 border border-cyan-500 text-cyan-300 text-[11px] flex items-center space-x-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                  <span>{actionMessage}</span>
+                </div>
+              )}
+
               <div>
                 <div className="text-[10px] uppercase text-slate-400 font-semibold">Summary & Scope</div>
                 <p className="mt-1 text-slate-200 leading-relaxed font-sans">{selectedCase.description}</p>
@@ -319,8 +423,18 @@ export const CasesPage: React.FC = () => {
                   <span className="text-cyan-300 font-semibold">{selectedCase.leadInvestigator}</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block">Status:</span>
-                  <span className="text-emerald-400 font-semibold">{selectedCase.status}</span>
+                  <span className="text-slate-400 block mb-1">Operational Status:</span>
+                  <select
+                    value={selectedCase.status}
+                    onChange={(e) => handleStatusChange(e.target.value as CaseStatus)}
+                    className="w-full rounded border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-emerald-400 font-semibold"
+                  >
+                    <option value="Active Investigation">Active Investigation</option>
+                    <option value="Chargesheet Filed">Chargesheet Filed</option>
+                    <option value="Surveillance Phase">Surveillance Phase</option>
+                    <option value="Interdiction Imminent">Interdiction Imminent</option>
+                    <option value="Closed">Closed</option>
+                  </select>
                 </div>
                 <div>
                   <span className="text-slate-400 block">Opened Date:</span>
@@ -328,24 +442,68 @@ export const CasesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Linked Targets */}
+              {/* Linked Targets & Management */}
               <div>
-                <div className="text-[10px] uppercase text-slate-400 font-semibold mb-2">
-                  Key Linked Targets in Network
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[10px] uppercase text-slate-400 font-semibold">
+                    Key Linked Targets in Network ({caseEntities.length})
+                  </span>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {mockEntities.slice(0, 4).map(ent => (
+
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  {caseEntities.map(ent => (
                     <div 
                       key={ent.id} 
-                      onClick={() => navigate(`/entity/${ent.id}`)}
-                      className="p-2 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500 cursor-pointer flex items-center justify-between"
+                      className="p-2 rounded bg-slate-900 border border-slate-800 flex items-center justify-between group"
                     >
-                      <span className="text-slate-200 truncate">{ent.name}</span>
-                      <Badge variant={ent.riskScore > 85 ? 'critical' : 'high'} className="text-[8px]">
-                        {ent.riskScore}
-                      </Badge>
+                      <span 
+                        onClick={() => navigate(`/person/${ent.id}`)}
+                        className="text-slate-200 truncate cursor-pointer hover:text-cyan-300"
+                      >
+                        {ent.name}
+                      </span>
+                      <div className="flex items-center space-x-1">
+                        <Badge variant={ent.riskScore > 85 ? 'critical' : 'high'} className="text-[8px]">
+                          {ent.riskScore}
+                        </Badge>
+                        <button
+                          onClick={() => handleUnlinkEntity(ent.id)}
+                          title="Unlink from case"
+                          className="opacity-0 group-hover:opacity-100 p-0.5 text-slate-500 hover:text-red-400 transition-opacity"
+                        >
+                          <Trash2 className="h-3 w-3" />
+                        </button>
+                      </div>
                     </div>
                   ))}
+                </div>
+
+                {/* Link New Target Selector */}
+                <div className="flex items-center space-x-2 pt-2 border-t border-slate-800/80">
+                  <select
+                    value={selectedEntityToLink}
+                    onChange={(e) => setSelectedEntityToLink(e.target.value)}
+                    className="flex-1 rounded border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-slate-200"
+                  >
+                    <option value="">-- Associate Tracked Subject to Case --</option>
+                    {availableEntities
+                      .filter(e => !caseEntities.some(ce => ce.id === e.id))
+                      .map(e => (
+                        <option key={e.id} value={e.id}>
+                          {e.name} ({e.city || 'NCR'}) [Score: {e.riskScore}]
+                        </option>
+                      ))}
+                  </select>
+                  <Button
+                    variant="cyan"
+                    size="sm"
+                    disabled={!selectedEntityToLink}
+                    onClick={handleLinkEntity}
+                    className="h-7 text-xs flex items-center space-x-1"
+                  >
+                    <UserPlus className="h-3 w-3" />
+                    <span>Link</span>
+                  </Button>
                 </div>
               </div>
 

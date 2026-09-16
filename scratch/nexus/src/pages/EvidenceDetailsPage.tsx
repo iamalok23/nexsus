@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { 
   FileText, 
@@ -14,9 +14,14 @@ import {
   Fingerprint,
   Share2,
   Calendar,
-  Database
+  Database,
+  RefreshCw,
+  AlertTriangle,
+  ArrowLeft
 } from 'lucide-react'
 import { mockEvidence, mockEntities } from '../data/mockData'
+import { Evidence } from '../types'
+import { api } from '../lib/api'
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
@@ -26,25 +31,118 @@ export const EvidenceDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [copied, setCopied] = useState(false)
+  
+  const [evidenceList, setEvidenceList] = useState<Evidence[]>(mockEvidence)
+  const [evidence, setEvidence] = useState<Evidence | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Find evidence item or fallback to first
-  const evidence = mockEvidence.find(e => e.id === id) || mockEvidence[0]
+  // Load evidence list for switcher and fetch target evidence
+  useEffect(() => {
+    let isMounted = true
+    const loadEvidenceData = async () => {
+      setLoading(true)
+      setError(null)
+
+      let currentList = mockEvidence
+      try {
+        const remoteList = await api.getEvidenceList()
+        if (remoteList && remoteList.length > 0) {
+          currentList = remoteList
+          if (isMounted) setEvidenceList(remoteList)
+        }
+      } catch (listErr) {
+        console.warn('Unable to load remote evidence list, using local fallback:', listErr)
+      }
+
+      const targetId = id || (currentList.length > 0 ? currentList[0].id : 'ev-1')
+
+      try {
+        const remoteItem = await api.getEvidence(targetId)
+        if (isMounted && remoteItem) {
+          setEvidence(remoteItem)
+          setLoading(false)
+          return
+        }
+      } catch (itemErr) {
+        console.warn(`Remote fetch for evidence ${targetId} failed, checking local fallback:`, itemErr)
+      }
+
+      // Local fallback lookup
+      const localMatch = currentList.find(e => e.id === targetId || e.evidenceNumber === targetId) ||
+        mockEvidence.find(e => e.id === targetId || e.evidenceNumber === targetId)
+
+      if (isMounted) {
+        if (localMatch) {
+          setEvidence(localMatch)
+        } else {
+          setError(`Evidence dossier with ID '${targetId}' was not found.`)
+        }
+        setLoading(false)
+      }
+    }
+
+    loadEvidenceData()
+    return () => { isMounted = false }
+  }, [id])
 
   const copyHash = () => {
+    if (!evidence) return
     navigator.clipboard.writeText(evidence.hashSHA256)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
   // Linked persons
-  const linkedPersons = mockEntities.filter(p => evidence.linkedEntityIds.includes(p.id))
+  const linkedPersons = evidence 
+    ? mockEntities.filter(p => evidence.linkedEntityIds?.includes(p.id) || evidence.linkedEntityIds?.includes(p.name))
+    : []
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center p-20 space-y-4 font-mono">
+        <RefreshCw className="h-8 w-8 text-cyan-400 animate-spin" />
+        <div className="text-sm font-bold text-slate-200 tracking-wider">
+          RETRIEVING CLASSIFIED EVIDENCE RECORD // {id || 'DEFAULT'}
+        </div>
+        <p className="text-xs text-slate-400">Verifying SHA-256 hash & decrypting chain-of-custody dossier...</p>
+      </div>
+    )
+  }
+
+  if (error || !evidence) {
+    return (
+      <div className="space-y-6 font-mono max-w-2xl mx-auto mt-10">
+        <div className="p-8 border border-red-800/80 bg-[#0d1320] rounded-xs space-y-4 text-center">
+          <AlertTriangle className="h-10 w-10 text-red-400 mx-auto" />
+          <h2 className="text-lg font-bold text-red-200 uppercase tracking-wide">
+            EVIDENCE RECORD NOT FOUND
+          </h2>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            No verified evidence item matching identifier <span className="text-cyan-300 font-bold font-mono">"{id}"</span> could be found in the SQLite investigation vault.
+          </p>
+          <div className="pt-3 flex flex-wrap justify-center gap-3">
+            <Button variant="outline" size="sm" onClick={() => navigate('/upload')}>
+              <ArrowLeft className="h-3.5 w-3.5 mr-1" />
+              Back to Evidence Vault
+            </Button>
+            {evidenceList.length > 0 && (
+              <Button variant="cyan" size="sm" onClick={() => navigate(`/evidence/${evidenceList[0].id}`)}>
+                Open Available Evidence ({evidenceList[0].evidenceNumber})
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6 font-mono">
       {/* Evidence Switcher Strip */}
       <div className="flex items-center space-x-2 overflow-x-auto pb-1 border-b border-slate-800">
         <span className="text-[10px] uppercase text-slate-400 font-semibold shrink-0">Select Evidence File:</span>
-        {mockEvidence.map(e => (
+        {evidenceList.map(e => (
           <button
             key={e.id}
             onClick={() => navigate(`/evidence/${e.id}`)}
@@ -55,7 +153,7 @@ export const EvidenceDetailsPage: React.FC = () => {
                 : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
             )}
           >
-            {e.evidenceNumber} ({e.city})
+            {e.evidenceNumber} ({e.city || 'NCR'})
           </button>
         ))}
       </div>

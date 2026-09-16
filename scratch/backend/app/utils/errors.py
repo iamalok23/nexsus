@@ -41,6 +41,15 @@ class InvalidUploadError(NexusException):
         )
 
 
+class DatabaseOperationError(NexusException):
+    def __init__(self, message: str, details: dict = None):
+        super().__init__(
+            message=message,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            details=details or {}
+        )
+
+
 def register_error_handlers(app: FastAPI) -> None:
     """Register centralized error handlers on the FastAPI app."""
 

@@ -9,7 +9,10 @@ import {
   ChevronLeft, 
   ChevronRight,
   Shield,
-  Radio
+  Radio,
+  Briefcase,
+  Clock,
+  Settings
 } from 'lucide-react'
 import { cn } from '../../lib/utils'
 import { Badge } from '../ui/badge'
@@ -17,13 +20,15 @@ import { Badge } from '../ui/badge'
 export const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
 
-  // 5 Main screens requested for Smart India Hackathon
   const navItems = [
     { to: '/', label: 'Dashboard Deck', icon: LayoutDashboard, badge: 'LIVE' },
+    { to: '/cases', label: 'Cases & Ops', icon: Briefcase },
     { to: '/upload', label: 'Ingest Evidence', icon: UploadCloud, highlight: true },
     { to: '/network', label: 'Network Analysis', icon: Share2, badge: 'GRAPH' },
     { to: '/person/ent-1', label: 'Target Dossiers', icon: UserCheck },
     { to: '/evidence/ev-1', label: 'Evidence Vault', icon: FileText },
+    { to: '/timeline', label: 'Timeline Intel', icon: Clock },
+    { to: '/settings', label: 'Terminal Config', icon: Settings },
   ]
 
   return (

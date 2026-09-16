@@ -13,12 +13,15 @@ from app.utils.database import Base, engine
 from app.utils.errors import register_error_handlers
 from app.api.router import api_router
 from app.api.health import router as health_router
+import app.models  # Ensures all SQLAlchemy models are registered for Base.metadata.create_all
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan context: initialize SQLite tables on startup."""
     Base.metadata.create_all(bind=engine)
+    from app.services.upload_service import upload_service
+    upload_service.seed_initial_evidence()
     yield
 
 

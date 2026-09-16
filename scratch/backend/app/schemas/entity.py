@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 class EntityType(str, Enum):
     SUBJECT_OF_INTEREST = "subject_of_interest"
-    SUSPECT = "suspect"  # Supported for frontend schema compatibility
+    SUSPECT = "suspect"
     ORGANIZATION = "organization"
     SHELL_COMPANY = "shell_company"
     VEHICLE = "vehicle"
@@ -41,6 +41,48 @@ class EntityDetails(BaseModel):
     wanted_for: Optional[List[str]] = Field(default=None, alias="wantedFor")
 
     model_config = ConfigDict(populate_by_name=True)
+
+
+class EntityCreate(BaseModel):
+    name: str = Field(..., example="Amit Yadav")
+    type: EntityType = Field(default=EntityType.SUBJECT_OF_INTEREST)
+    risk_score: int = Field(default=75, alias="riskScore", example=75)
+    risk_level: Optional[RiskLevel] = Field(default=RiskLevel.HIGH, alias="riskLevel")
+    status: str = Field(default="Requires Human Review", example="Under Surveillance")
+    aliases: List[str] = Field(default_factory=list)
+    primary_affiliation: str = Field(default="", alias="primaryAffiliation", example="Ghaziabad Bullion Transit")
+    role: str = Field(default="", example="Financial Handover Facilitator")
+    phone_masked: Optional[str] = Field(None, alias="phoneMasked", example="+91 98XXXXXX44")
+    vehicle_number: Optional[str] = Field(None, alias="vehicleNumber", example="UP14 CD 5678")
+    city: str = Field(default="Delhi", example="Ghaziabad")
+    nationality: Optional[str] = Field("Indian", example="Indian")
+    photo: Optional[str] = None
+    last_known_location: Optional[LocationData] = Field(None, alias="lastKnownLocation")
+    tags: List[str] = Field(default_factory=list)
+    details: Optional[EntityDetails] = Field(default_factory=EntityDetails)
+
+    model_config = ConfigDict(populate_by_name=True, from_attributes=True)
+
+
+class EntityUpdate(BaseModel):
+    name: Optional[str] = None
+    type: Optional[EntityType] = None
+    risk_score: Optional[int] = Field(None, alias="riskScore")
+    risk_level: Optional[RiskLevel] = Field(None, alias="riskLevel")
+    status: Optional[str] = None
+    aliases: Optional[List[str]] = None
+    primary_affiliation: Optional[str] = Field(None, alias="primaryAffiliation")
+    role: Optional[str] = None
+    phone_masked: Optional[str] = Field(None, alias="phoneMasked")
+    vehicle_number: Optional[str] = Field(None, alias="vehicleNumber")
+    city: Optional[str] = None
+    nationality: Optional[str] = None
+    photo: Optional[str] = None
+    last_known_location: Optional[LocationData] = Field(None, alias="lastKnownLocation")
+    tags: Optional[List[str]] = None
+    details: Optional[EntityDetails] = None
+
+    model_config = ConfigDict(populate_by_name=True, from_attributes=True)
 
 
 class EntityResponse(BaseModel):
